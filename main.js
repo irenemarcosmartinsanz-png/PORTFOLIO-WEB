@@ -5,12 +5,12 @@ var imagenAmarilla = 'assets/yellowstar.png';
 
 // las 6 estrellas principales, 3 a cada lado
 var estrellas = [
-  { lado: 'izq', tamaño: 125, link: '#contact' },
-  { lado: 'izq', tamaño: 100, link: '#contact' },
-  { lado: 'izq', tamaño: 115, link: '#contact' },
-  { lado: 'der', tamaño: 120, link: '#contact' },
-  { lado: 'der', tamaño: 105, link: '#contact' },
-  { lado: 'der', tamaño: 135, link: '#contact' },
+  { lado: 'izq', tamaño: 125, link: 'lo-que-no-se-cuenta.html' },
+  { lado: 'izq', tamaño: 100, link: 'carusos.html' },
+  { lado: 'izq', tamaño: 115, link: 'mobiliare.html' },
+  { lado: 'der', tamaño: 120, link: 'balloon3d.html' },
+  { lado: 'der', tamaño: 105, link: 'dont-overthink.html' },
+  { lado: 'der', tamaño: 135, link: 'goldfinch.html' },
 ];
 
 function crearEstrella(tamaño) {

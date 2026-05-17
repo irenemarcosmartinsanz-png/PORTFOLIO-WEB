@@ -56,8 +56,9 @@ html {
 .nav-works-wrap {
   position: relative;
   display: inline-block;
-  isolation: isolate;
   color: #111 !important;
+  isolation: isolate;
+  /* display: block; */
 }
 
 .nav-subrayado {
@@ -126,7 +127,7 @@ html {
   margin-top: 0.2rem;
 }
 
-/* estrellas */
+/* estrellas - matter.js */
 .star {
   position: absolute;
   transform: translate(-50%, -50%);

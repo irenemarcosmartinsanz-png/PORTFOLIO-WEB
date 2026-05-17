@@ -112,6 +112,18 @@ body {
   font-size: 0.9rem;
 }
 
+.contact-socials-large {
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  justify-content: space-between !important;
+  padding: 1.5rem 2.5rem 3rem !important;
+}
+
+.contact-socials-large .social-link {
+  font-size: 0.85rem;
+}
+
 @media (max-width: 680px) {
   .contact-page { padding: 7rem 1.2rem 4rem; }
+  .contact-socials-big { flex-wrap: wrap; gap: 1.5rem; padding: 2rem 1.2rem 3rem; }
 }

@@ -5,21 +5,21 @@ var imagenAmarilla = 'assets/yellowstar.png';
 
 // las 6 estrellas principales, 3 a cada lado
 var estrellas = [
-  { lado: 'izq', tamaño: 125, link: 'lo-que-no-se-cuenta.html' },
-  { lado: 'izq', tamaño: 100, link: 'carusos.html' },
-  { lado: 'izq', tamaño: 115, link: 'mobiliare.html' },
-  { lado: 'der', tamaño: 120, link: 'balloon3d.html' },
-  { lado: 'der', tamaño: 105, link: 'dont-overthink.html' },
-  { lado: 'der', tamaño: 135, link: 'goldfinch.html' },
+  { lado: 'izq', tamaño: 125, link: 'lo-que-no-se-cuenta.html', titulo: 'Lo que no se cuenta' },
+  { lado: 'izq', tamaño: 100, link: 'carusos.html',             titulo: "Caruso's" },
+  { lado: 'izq', tamaño: 115, link: 'mobiliare.html',           titulo: 'Mobiliare' },
+  { lado: 'der', tamaño: 120, link: 'balloon3d.html',           titulo: 'Balloon' },
+  { lado: 'der', tamaño: 105, link: 'dont-overthink.html',      titulo: "Don't Overthink" },
+  { lado: 'der', tamaño: 135, link: 'goldfinch.html',           titulo: 'Goldfinch' },
 ];
 
-function crearEstrella(tamaño) {
+function crearEstrella(tamaño, titulo) {
   var div = document.createElement('div');
   div.className = 'star star-interactive';
   div.style.width = tamaño + 'px';
   div.style.height = tamaño + 'px';
   div.innerHTML = '<img class="star-img" src="' + imagenEstrella + '" draggable="false" />'
-                + '<div class="star-label">click me!</div>';
+                + '<div class="star-label">' + titulo + '</div>';
   return div;
 }
 
@@ -79,7 +79,7 @@ function init() {
     }
     y = H * 0.15 + Math.random() * H * 0.65;
 
-    var el = crearEstrella(estrella.tamaño);
+    var el = crearEstrella(estrella.tamaño, estrella.titulo);
     contenedor.appendChild(el);
 
     var cuerpo = Bodies.circle(x, y, r, {
@@ -209,7 +209,8 @@ function init() {
 
   Runner.run(Runner.create(), engine);
 
-  // bucle para actualizar la posicion de cada estrella
+  // bucle de animacion
+  // console.log('estrellas creadas:', todasLasEstrellas.length);
   function animar() {
     todasLasEstrellas.forEach(function(s) {
       s.el.style.left = s.cuerpo.position.x + 'px';

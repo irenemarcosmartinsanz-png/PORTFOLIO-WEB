@@ -1,13 +1,17 @@
+.nav-active {
+  color: white !important;
+}
+
 .about-page {
-  max-width: 900px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 8rem 2.5rem 5rem;
+  padding: 8rem 4rem 5rem;
 }
 
 /* foto + nombre arriba */
 .about-top {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 3rem;
   margin-bottom: 5rem;
 }
@@ -50,28 +54,35 @@
 }
 
 .about-nombre p {
-  color: #888;
+  color: #003BFF;
   font-size: 1rem;
 }
 
-/* secciones */
-.about-seccion {
+/* grid de secciones */
+.about-grid {
   display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 1rem 2rem;
-  padding: 2.5rem 0;
-  border-top: 1px solid #ebebeb;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 8rem;
+  /* margin-top: 2rem; */
+}
+
+.about-seccion {
+  grid-template-columns: 100px 1fr;
+  display: grid;
+  padding: 0;
+  gap: 0.8rem 1.5rem;
 }
 
 .about-etiqueta {
   font-size: 0.8rem;
-  color: #888;
+  font-weight: 600;
+  color: #003BFF;
   padding-top: 0.2rem;
   letter-spacing: 0.03em;
 }
 
 .about-texto p {
-  color: #333;
+  color: #111;
   line-height: 1.75;
   margin-bottom: 0.8rem;
   font-size: 0.95rem;
@@ -86,7 +97,7 @@
 
 .cv-año {
   font-size: 0.8rem;
-  color: #aaa;
+  color: #003BFF;
   width: 80px;
   flex-shrink: 0;
   padding-top: 0.2rem;
@@ -101,7 +112,7 @@
 
 .cv-item p {
   font-size: 0.85rem;
-  color: #888;
+  color: #003BFF;
   margin: 0 !important;
 }
 
@@ -115,15 +126,11 @@
 .skills-lista span {
   font-size: 0.8rem;
   padding: 0.3rem 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #003BFF;
   border-radius: 20px;
-  color: #555;
+  color: #003BFF;
 }
 
-/* link activo en nav */
-.nav-active {
-  color: #111 !important;
-}
 
 @media (max-width: 680px) {
   .about-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; }

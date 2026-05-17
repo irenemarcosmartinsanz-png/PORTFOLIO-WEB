@@ -1,3 +1,29 @@
+body {
+  background: #4B55E8;
+  color: white;
+}
+
+/* sobreescribir el nav para que quede bien sobre fondo azul */
+.nav {
+  background: rgba(75, 85, 232, 0.85);
+}
+
+.nav-logo {
+  color: white;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-active {
+  color: white !important;
+}
+
 .contact-page {
   max-width: 620px;
   margin: 0 auto;
@@ -13,14 +39,14 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
+  color: white;
 }
 
 .contact-header p {
-  color: #888;
+  color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;
 }
 
-/* formulario */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -35,18 +61,18 @@
 
 .campo label {
   font-size: 0.8rem;
-  color: #888;
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.03em;
 }
 
 .campo input,
 .campo textarea {
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.7rem 0;
   font-size: 1rem;
   font-family: 'Inter', sans-serif;
-  color: #111;
+  color: white;
   background: transparent;
   outline: none;
   resize: none;
@@ -55,23 +81,23 @@
 
 .campo input:focus,
 .campo textarea:focus {
-  border-color: #4B55E8;
+  border-color: white;
 }
 
 .campo input::placeholder,
 .campo textarea::placeholder {
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-enviar {
   align-self: flex-start;
-  background: #4B55E8;
-  color: white;
+  background: white;
+  color: #4B55E8;
   border: none;
   padding: 0.85rem 2.5rem;
   font-size: 0.9rem;
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.03em;
   transition: opacity 0.2s;
@@ -82,7 +108,7 @@
 }
 
 .mensaje-ok {
-  color: #4B55E8;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
 }
 

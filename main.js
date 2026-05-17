@@ -1,116 +1,119 @@
 const { Engine, Runner, Bodies, Body, Events, Composite } = Matter;
 
-const STAR_IMG = 'assets/e4e1f376-bfc9-4d04-8957-f723b935d7c8.png';
+var imagenEstrella = 'assets/e4e1f376-bfc9-4d04-8957-f723b935d7c8.png';
 
-// 6 estrellas: 3 izquierda, 3 derecha — todas interactivas
-const STARS = [
-  { side: 'left',  size: 90,  href: '#contact' },
-  { side: 'left',  size: 70,  href: '#contact' },
-  { side: 'left',  size: 80,  href: '#contact' },
-  { side: 'right', size: 85,  href: '#contact' },
-  { side: 'right', size: 72,  href: '#contact' },
-  { side: 'right', size: 95,  href: '#contact' },
+// las 6 estrellas, 3 a cada lado
+var estrellas = [
+  { lado: 'izq', tamaño: 90,  link: '#contact' },
+  { lado: 'izq', tamaño: 70,  link: '#contact' },
+  { lado: 'izq', tamaño: 80,  link: '#contact' },
+  { lado: 'der', tamaño: 85,  link: '#contact' },
+  { lado: 'der', tamaño: 72,  link: '#contact' },
+  { lado: 'der', tamaño: 95,  link: '#contact' },
 ];
 
-function makeStarEl(size) {
-  const el = document.createElement('div');
-  el.className = 'star star-interactive';
-  el.style.width  = size + 'px';
-  el.style.height = size + 'px';
-  el.innerHTML = `
-    <img class="star-img" src="${STAR_IMG}" alt="" draggable="false" />
-    <div class="star-label">click me!</div>
-  `;
-  return el;
+function crearEstrella(tamaño) {
+  var div = document.createElement('div');
+  div.className = 'star star-interactive';
+  div.style.width = tamaño + 'px';
+  div.style.height = tamaño + 'px';
+  div.innerHTML = '<img class="star-img" src="' + imagenEstrella + '" draggable="false" />'
+                + '<div class="star-label">click me!</div>';
+  return div;
 }
 
 function init() {
-  const hero      = document.getElementById('hero');
-  const container = document.getElementById('stars-container');
-  const W = hero.clientWidth;
-  const H = hero.clientHeight;
+  var hero = document.getElementById('hero');
+  var contenedor = document.getElementById('stars-container');
 
-  const engine = Engine.create({ gravity: { x: 0, y: 0 } });
-  const world  = engine.world;
+  var W = hero.clientWidth;
+  var H = hero.clientHeight;
 
-  // Zona central protegida (foto) — barreras físicas invisibles
-  // La foto ocupa aprox. el 40% central de la pantalla
-  const PHOTO_L = W * 0.30;
-  const PHOTO_R = W * 0.70;
+  // motor de fisicas sin gravedad
+  var engine = Engine.create({ gravity: { x: 0, y: 0 } });
+  var world = engine.world;
 
-  const wallOpts = { isStatic: true, collisionFilter: { category: 0x0002 } };
+  // zona de la foto aprox en el centro (30% - 70%)
+  var fotoIzq = W * 0.30;
+  var fotoDer = W * 0.70;
+
+  // paredes para que no se salgan + bordes de la foto
+  var paredOpts = { isStatic: true };
   Composite.add(world, [
-    Bodies.rectangle(W / 2,   -25, W,  50, wallOpts), // techo
-    Bodies.rectangle(W / 2, H + 25, W,  50, wallOpts), // suelo
-    Bodies.rectangle(  -25, H / 2, 50,  H,  wallOpts), // pared izquierda
-    Bodies.rectangle(W + 25, H / 2, 50,  H,  wallOpts), // pared derecha
-    Bodies.rectangle(PHOTO_L, H / 2,  8,  H,  wallOpts), // borde izq. foto
-    Bodies.rectangle(PHOTO_R, H / 2,  8,  H,  wallOpts), // borde der. foto
+    Bodies.rectangle(W / 2, -25,    W,  50, paredOpts),
+    Bodies.rectangle(W / 2, H + 25, W,  50, paredOpts),
+    Bodies.rectangle(-25,   H / 2,  50, H,  paredOpts),
+    Bodies.rectangle(W + 25, H / 2, 50, H,  paredOpts),
+    Bodies.rectangle(fotoIzq, H / 2, 8, H,  paredOpts),
+    Bodies.rectangle(fotoDer, H / 2, 8, H,  paredOpts),
   ]);
 
-  const allStars = [];
+  var todasLasEstrellas = [];
 
-  STARS.forEach(star => {
-    const { size, side, href } = star;
-    const r = size / 2;
+  estrellas.forEach(function(estrella) {
+    var r = estrella.tamaño / 2;
+    var x, y;
 
-    // Posición inicial dentro de su zona (izquierda o derecha)
-    let x, y;
-    if (side === 'left') {
-      x = r + Math.random() * (PHOTO_L - r * 2.5);
-      y = H * 0.15 + Math.random() * H * 0.65;
+    if (estrella.lado === 'izq') {
+      x = r + Math.random() * (fotoIzq - r * 2.5);
     } else {
-      x = PHOTO_R + r + Math.random() * (W - PHOTO_R - r * 2.5);
-      y = H * 0.15 + Math.random() * H * 0.65;
+      x = fotoDer + r + Math.random() * (W - fotoDer - r * 2.5);
     }
+    y = H * 0.15 + Math.random() * H * 0.65;
 
-    const el = makeStarEl(size);
-    container.appendChild(el);
+    var el = crearEstrella(estrella.tamaño);
+    contenedor.appendChild(el);
 
-    const body = Bodies.circle(x, y, r, {
+    var cuerpo = Bodies.circle(x, y, r, {
       frictionAir: 0.008,
-      restitution: 0.85,
-      collisionFilter: { category: 0x0001, mask: 0x0002 | 0x0001 },
+      restitution: 0.85
     });
-    Body.setVelocity(body, {
+
+    Body.setVelocity(cuerpo, {
       x: (Math.random() - 0.5) * 2,
-      y: (Math.random() - 0.5) * 2,
+      y: (Math.random() - 0.5) * 2
     });
-    Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.04);
-    Composite.add(world, body);
+    Body.setAngularVelocity(cuerpo, (Math.random() - 0.5) * 0.04);
 
-    el.addEventListener('click', () => {
-      window.location.href = href;
+    Composite.add(world, cuerpo);
+
+    // al hacer click va al link
+    el.addEventListener('click', function() {
+      window.location.href = estrella.link;
     });
 
-    allStars.push({ el, body });
+    todasLasEstrellas.push({ el: el, cuerpo: cuerpo });
   });
 
-  // Mantener movimiento mínimo
-  Events.on(engine, 'beforeUpdate', () => {
-    for (const { body } of allStars) {
-      if (Math.hypot(body.velocity.x, body.velocity.y) < 0.4) {
-        Body.applyForce(body, body.position, {
+  // si una estrella se para le damos un empujoncito
+  Events.on(engine, 'beforeUpdate', function() {
+    todasLasEstrellas.forEach(function(s) {
+      var vel = s.cuerpo.velocity;
+      if (Math.sqrt(vel.x * vel.x + vel.y * vel.y) < 0.4) {
+        Body.applyForce(s.cuerpo, s.cuerpo.position, {
           x: (Math.random() - 0.5) * 0.00035,
-          y: (Math.random() - 0.5) * 0.00035,
+          y: (Math.random() - 0.5) * 0.00035
         });
       }
-    }
+    });
   });
 
   Runner.run(Runner.create(), engine);
 
-  function tick() {
-    for (const { el, body } of allStars) {
-      el.style.left = body.position.x + 'px';
-      el.style.top  = body.position.y + 'px';
-      el.querySelector('.star-img').style.transform = `rotate(${body.angle}rad)`;
-    }
-    requestAnimationFrame(tick);
+  // bucle para actualizar la posicion de cada estrella
+  function animar() {
+    todasLasEstrellas.forEach(function(s) {
+      s.el.style.left = s.cuerpo.position.x + 'px';
+      s.el.style.top  = s.cuerpo.position.y + 'px';
+      s.el.querySelector('.star-img').style.transform = 'rotate(' + s.cuerpo.angle + 'rad)';
+    });
+    requestAnimationFrame(animar);
   }
-  tick();
+  animar();
 
-  window.addEventListener('resize', () => location.reload());
+  window.addEventListener('resize', function() {
+    location.reload();
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);

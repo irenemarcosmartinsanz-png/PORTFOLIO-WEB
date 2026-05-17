@@ -61,7 +61,7 @@
 /* imagen principal del proyecto */
 .project-imagen {
   width: 100%;
-  background: #f0f0f0;
+  background: white;
   overflow: hidden;
   margin-bottom: 5rem;
 }

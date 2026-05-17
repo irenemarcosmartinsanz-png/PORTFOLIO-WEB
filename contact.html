@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>contact — !rene</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">!rene</a>
+    <ul class="nav-links">
+      <li><a href="works.html">works</a></li>
+      <li><a href="about.html">about</a></li>
+      <li><a href="contact.html" class="nav-active">contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="contact-page">
+
+    <div class="contact-header">
+      <h1>↙ Let's talk</h1>
+      <p>¿Tienes un proyecto en mente? Escríbeme</p>
+    </div>
+
+    <form class="contact-form" onsubmit="enviarFormulario(event)">
+
+      <div class="campo">
+        <label for="nombre">nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+      </div>
+
+      <div class="campo">
+        <label for="correo">correo</label>
+        <input type="email" id="correo" name="correo" placeholder="tu@email.com" required />
+      </div>
+
+      <div class="campo">
+        <label for="proyecto">¿cuál es tu proyecto?</label>
+        <textarea id="proyecto" name="proyecto" placeholder="Cuéntame en qué estás trabajando o qué necesitas..." rows="6" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-enviar">enviar</button>
+
+      <p id="mensaje-ok" class="mensaje-ok" style="display:none">
+        Mensaje enviado, te respondo pronto!
+      </p>
+
+    </form>
+
+  </main>
+
+  <script>
+    function enviarFormulario(e) {
+      e.preventDefault();
+      // aqui podrias conectar con formspree o emailjs
+      document.getElementById('mensaje-ok').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>

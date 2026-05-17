@@ -1,0 +1,91 @@
+.contact-page {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 8rem 2.5rem 5rem;
+}
+
+.contact-header {
+  margin-bottom: 3.5rem;
+}
+
+.contact-header h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  color: #888;
+  font-size: 1rem;
+}
+
+/* formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.campo label {
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 0.03em;
+}
+
+.campo input,
+.campo textarea {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: #111;
+  background: transparent;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  border-color: #4B55E8;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: #ccc;
+}
+
+.btn-enviar {
+  align-self: flex-start;
+  background: #4B55E8;
+  color: white;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+}
+
+.btn-enviar:hover {
+  opacity: 0.85;
+}
+
+.mensaje-ok {
+  color: #4B55E8;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 680px) {
+  .contact-page { padding: 7rem 1.2rem 4rem; }
+}

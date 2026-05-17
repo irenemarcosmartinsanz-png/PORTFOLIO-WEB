@@ -1,0 +1,132 @@
+.about-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 8rem 2.5rem 5rem;
+}
+
+/* foto + nombre arriba */
+.about-top {
+  display: flex;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.about-foto-wrap {
+  position: relative;
+  width: 260px;
+  height: 320px;
+  flex-shrink: 0;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+
+.about-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%);
+  display: block;
+}
+
+.about-foto-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+.about-nombre h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.about-nombre p {
+  color: #888;
+  font-size: 1rem;
+}
+
+/* secciones */
+.about-seccion {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid #ebebeb;
+}
+
+.about-etiqueta {
+  font-size: 0.8rem;
+  color: #888;
+  padding-top: 0.2rem;
+  letter-spacing: 0.03em;
+}
+
+.about-texto p {
+  color: #333;
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+/* cv items */
+.cv-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cv-año {
+  font-size: 0.8rem;
+  color: #aaa;
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+
+.cv-item strong {
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.cv-item p {
+  font-size: 0.85rem;
+  color: #888;
+  margin: 0 !important;
+}
+
+/* skills */
+.skills-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-lista span {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  color: #555;
+}
+
+/* link activo en nav */
+.nav-active {
+  color: #111 !important;
+}
+
+@media (max-width: 680px) {
+  .about-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .about-foto-wrap { width: 160px; height: 200px; }
+  .about-seccion { grid-template-columns: 1fr; gap: 0.8rem; }
+  .about-page { padding: 7rem 1.2rem 4rem; }
+}

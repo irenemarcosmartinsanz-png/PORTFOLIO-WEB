@@ -98,6 +98,41 @@ function init() {
     });
   });
 
+  // raton rapido = alborota las estrellas cercanas
+  var mouseX = 0, mouseY = 0;
+  var mouseXant = 0, mouseYant = 0;
+
+  hero.addEventListener('mousemove', function(e) {
+    var rect = hero.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+
+    var dx = mouseX - mouseXant;
+    var dy = mouseY - mouseYant;
+    var velocidad = Math.sqrt(dx * dx + dy * dy);
+
+    // solo si el raton va rapido
+    if (velocidad > 8) {
+      todasLasEstrellas.forEach(function(s) {
+        var ex = s.cuerpo.position.x - mouseX;
+        var ey = s.cuerpo.position.y - mouseY;
+        var distancia = Math.sqrt(ex * ex + ey * ey);
+
+        // solo afecta a las estrellas que estan cerca
+        if (distancia < 160 && distancia > 0) {
+          var fuerza = (velocidad / distancia) * 0.00012;
+          Body.applyForce(s.cuerpo, s.cuerpo.position, {
+            x: (ex / distancia) * fuerza,
+            y: (ey / distancia) * fuerza
+          });
+        }
+      });
+    }
+
+    mouseXant = mouseX;
+    mouseYant = mouseY;
+  });
+
   Runner.run(Runner.create(), engine);
 
   // bucle para actualizar la posicion de cada estrella

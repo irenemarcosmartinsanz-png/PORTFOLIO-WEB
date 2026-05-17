@@ -225,8 +225,11 @@ html {
 /* movil */
 @media (max-width: 680px) {
   .nav { padding: 1rem 1.2rem; }
-  .nav-links { gap: 1.2rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links a { font-size: 0.8rem; }
+  .nav-logo { font-size: 1rem; }
   .hero-info { left: 1.2rem; bottom: 1.5rem; }
   #contact { padding: 3rem 1.2rem 2.5rem; }
-  .contact-socials { gap: 1.5rem; }
+  .contact-socials { gap: 1.2rem; flex-wrap: wrap; }
+  .contact-headline { font-size: 2.2rem; }
 }

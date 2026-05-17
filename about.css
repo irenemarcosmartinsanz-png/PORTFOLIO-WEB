@@ -133,8 +133,11 @@
 
 
 @media (max-width: 680px) {
+  .about-page { padding: 6rem 1.2rem 3rem; }
   .about-top { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-  .about-foto-wrap { width: 160px; height: 200px; }
-  .about-seccion { grid-template-columns: 1fr; gap: 0.8rem; }
-  .about-page { padding: 7rem 1.2rem 4rem; }
+  .about-foto-wrap { width: 130px; height: 130px; }
+  .about-foto { width: 100px; height: 100px; }
+  .about-nombre h1 { font-size: 1.8rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem 0; }
+  .about-seccion { grid-template-columns: 90px 1fr; gap: 0.5rem 1rem; }
 }

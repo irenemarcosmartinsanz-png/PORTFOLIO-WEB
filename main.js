@@ -39,6 +39,7 @@ var estrellasAmarillas = [
   { tamaño: 72 },
   { tamaño: 55 },
   { tamaño: 60 },
+  { tamaño: 68 },
 ];
 
 function init() {

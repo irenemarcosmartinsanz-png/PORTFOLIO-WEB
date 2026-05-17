@@ -44,8 +44,6 @@ function init() {
     Bodies.rectangle(W / 2, H + 25, W,  50, paredOpts),
     Bodies.rectangle(-25,   H / 2,  50, H,  paredOpts),
     Bodies.rectangle(W + 25, H / 2, 50, H,  paredOpts),
-    Bodies.rectangle(fotoIzq, H / 2, 8, H,  paredOpts),
-    Bodies.rectangle(fotoDer, H / 2, 8, H,  paredOpts),
   ]);
 
   var todasLasEstrellas = [];

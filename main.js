@@ -2,22 +2,24 @@ const { Engine, Runner, Bodies, Body, Events, Composite } = Matter;
 
 const STAR_IMG = 'assets/e4e1f376-bfc9-4d04-8957-f723b935d7c8.png';
 
-const PROJECTS = [
-  { id: 'project-1', size: 72 },
-  { id: 'project-2', size: 60 },
-  { id: 'project-3', size: 68 },
+// 6 estrellas: 3 izquierda, 3 derecha — todas interactivas
+const STARS = [
+  { side: 'left',  size: 90,  href: '#contact' },
+  { side: 'left',  size: 70,  href: '#contact' },
+  { side: 'left',  size: 80,  href: '#contact' },
+  { side: 'right', size: 85,  href: '#contact' },
+  { side: 'right', size: 72,  href: '#contact' },
+  { side: 'right', size: 95,  href: '#contact' },
 ];
 
-const DECO_SIZES = [55, 48, 64];
-
-function makeStarEl(size, interactive) {
+function makeStarEl(size) {
   const el = document.createElement('div');
-  el.className = 'star ' + (interactive ? 'star-interactive' : 'star-deco');
+  el.className = 'star star-interactive';
   el.style.width  = size + 'px';
   el.style.height = size + 'px';
   el.innerHTML = `
     <img class="star-img" src="${STAR_IMG}" alt="" draggable="false" />
-    ${interactive ? '<div class="star-label">click me!</div>' : ''}
+    <div class="star-label">click me!</div>
   `;
   return el;
 }
@@ -31,54 +33,55 @@ function init() {
   const engine = Engine.create({ gravity: { x: 0, y: 0 } });
   const world  = engine.world;
 
-  const wallOpts = { isStatic: true };
+  // Zona central protegida (foto) — barreras físicas invisibles
+  // La foto ocupa aprox. el 40% central de la pantalla
+  const PHOTO_L = W * 0.30;
+  const PHOTO_R = W * 0.70;
+
+  const wallOpts = { isStatic: true, collisionFilter: { category: 0x0002 } };
   Composite.add(world, [
-    Bodies.rectangle(W / 2,   -25, W,  50, wallOpts),
-    Bodies.rectangle(W / 2, H + 25, W,  50, wallOpts),
-    Bodies.rectangle(  -25, H / 2, 50,  H, wallOpts),
-    Bodies.rectangle(W + 25, H / 2, 50,  H, wallOpts),
+    Bodies.rectangle(W / 2,   -25, W,  50, wallOpts), // techo
+    Bodies.rectangle(W / 2, H + 25, W,  50, wallOpts), // suelo
+    Bodies.rectangle(  -25, H / 2, 50,  H,  wallOpts), // pared izquierda
+    Bodies.rectangle(W + 25, H / 2, 50,  H,  wallOpts), // pared derecha
+    Bodies.rectangle(PHOTO_L, H / 2,  8,  H,  wallOpts), // borde izq. foto
+    Bodies.rectangle(PHOTO_R, H / 2,  8,  H,  wallOpts), // borde der. foto
   ]);
 
   const allStars = [];
 
-  // Estrellas interactivas (una por proyecto)
-  PROJECTS.forEach((proj, i) => {
-    const { size } = proj;
-    const x = W * (0.15 + 0.28 * i) + (Math.random() - 0.5) * 80;
-    const y = H * (0.25 + Math.random() * 0.5);
+  STARS.forEach(star => {
+    const { size, side, href } = star;
+    const r = size / 2;
 
-    const el = makeStarEl(size, true);
+    // Posición inicial dentro de su zona (izquierda o derecha)
+    let x, y;
+    if (side === 'left') {
+      x = r + Math.random() * (PHOTO_L - r * 2.5);
+      y = H * 0.15 + Math.random() * H * 0.65;
+    } else {
+      x = PHOTO_R + r + Math.random() * (W - PHOTO_R - r * 2.5);
+      y = H * 0.15 + Math.random() * H * 0.65;
+    }
+
+    const el = makeStarEl(size);
     container.appendChild(el);
 
-    const body = Bodies.circle(x, y, size / 2, { frictionAir: 0.008, restitution: 0.85 });
-    Body.setVelocity(body, { x: (Math.random() - 0.5) * 2, y: (Math.random() - 0.5) * 2 });
+    const body = Bodies.circle(x, y, r, {
+      frictionAir: 0.008,
+      restitution: 0.85,
+      collisionFilter: { category: 0x0001, mask: 0x0002 | 0x0001 },
+    });
+    Body.setVelocity(body, {
+      x: (Math.random() - 0.5) * 2,
+      y: (Math.random() - 0.5) * 2,
+    });
     Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.04);
     Composite.add(world, body);
 
-    // Click → scroll al proyecto
     el.addEventListener('click', () => {
-      const target = document.getElementById(proj.id);
-      if (!target) return;
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      target.classList.add('highlight');
-      setTimeout(() => target.classList.remove('highlight'), 900);
+      window.location.href = href;
     });
-
-    allStars.push({ el, body });
-  });
-
-  // Estrellas decorativas
-  DECO_SIZES.forEach(size => {
-    const x = W * 0.05 + Math.random() * W * 0.9;
-    const y = H * 0.05 + Math.random() * H * 0.9;
-
-    const el = makeStarEl(size, false);
-    container.appendChild(el);
-
-    const body = Bodies.circle(x, y, size / 2, { frictionAir: 0.01, restitution: 0.8 });
-    Body.setVelocity(body, { x: (Math.random() - 0.5) * 1.5, y: (Math.random() - 0.5) * 1.5 });
-    Body.setAngularVelocity(body, (Math.random() - 0.5) * 0.06);
-    Composite.add(world, body);
 
     allStars.push({ el, body });
   });
@@ -95,7 +98,6 @@ function init() {
     }
   });
 
-  // Loop RAF: sincronizar posición y rotación con el body físico
   Runner.run(Runner.create(), engine);
 
   function tick() {

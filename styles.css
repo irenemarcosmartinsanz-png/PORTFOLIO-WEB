@@ -72,13 +72,15 @@ body {
   justify-content: center;
   align-items: flex-start;
   overflow: hidden;
+  pointer-events: none; /* no bloquea clics en las estrellas */
 }
 
 .hero-photo {
-  height: 112%;   /* sobresale un 12% por abajo → recorta bajo el cuello */
+  height: 112%;
   width: auto;
   filter: grayscale(100%);
   display: block;
+  pointer-events: none;
 }
 
 /* Estado sin foto: placeholder */

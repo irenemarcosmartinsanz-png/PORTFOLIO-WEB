@@ -29,14 +29,14 @@
 /* fila de info */
 .project-info-row {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
   padding: 0 2.5rem 2.5rem;
 }
 
 .project-concepto {
-  padding-left: 12rem;
+  padding-left: 0;
 }
 
 .project-meta {

@@ -4,12 +4,12 @@ var imagenEstrella = 'assets/e4e1f376-bfc9-4d04-8957-f723b935d7c8.png';
 
 // las 6 estrellas, 3 a cada lado
 var estrellas = [
-  { lado: 'izq', tamaño: 90,  link: '#contact' },
-  { lado: 'izq', tamaño: 70,  link: '#contact' },
-  { lado: 'izq', tamaño: 80,  link: '#contact' },
-  { lado: 'der', tamaño: 85,  link: '#contact' },
-  { lado: 'der', tamaño: 72,  link: '#contact' },
-  { lado: 'der', tamaño: 95,  link: '#contact' },
+  { lado: 'izq', tamaño: 125, link: '#contact' },
+  { lado: 'izq', tamaño: 100, link: '#contact' },
+  { lado: 'izq', tamaño: 115, link: '#contact' },
+  { lado: 'der', tamaño: 120, link: '#contact' },
+  { lado: 'der', tamaño: 105, link: '#contact' },
+  { lado: 'der', tamaño: 135, link: '#contact' },
 ];
 
 function crearEstrella(tamaño) {

@@ -62,7 +62,6 @@ body {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  cursor: none; /* cursor personalizado activo */
 }
 
 /* Foto B&W — ocupa la mitad derecha del hero */
@@ -138,54 +137,37 @@ body {
 
 .star-interactive {
   pointer-events: auto;
-  cursor: none;
+  cursor: pointer;
 }
 
-.star-svg {
+.star-img {
   width: 100%;
   height: 100%;
-  transition: opacity 0.25s ease;
+  display: block;
+  transition: opacity 0.22s ease;
 }
 
-/* Nombre del proyecto — se muestra al hacer hover, oculto por defecto */
+/* "click me!" — aparece centrado sobre la estrella en hover */
 .star-label {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--accent);
   opacity: 0;
-  transition: opacity 0.25s ease;
-  white-space: nowrap;
+  transition: opacity 0.22s ease;
   pointer-events: none;
-  line-height: 1.2;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
-/* HOVER STATE: estrella desaparece, nombre aparece */
-.star-interactive:hover .star-svg  { opacity: 0; }
+/* HOVER: estrella se atenúa, aparece "click me!" */
+.star-interactive:hover .star-img   { opacity: 0.15; }
 .star-interactive:hover .star-label { opacity: 1; }
-
-/* ===== CURSOR PERSONALIZADO ===== */
-#cursor-follow {
-  position: fixed;
-  top: 0; left: 0;
-  z-index: 999;
-  font-family: var(--font-cursor);
-  font-size: 1.2rem;
-  color: var(--accent);
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(14px, -50%);
-  transition: opacity 0.15s;
-  white-space: nowrap;
-}
-
-#cursor-follow.visible { opacity: 1; }
 
 /* ===== WORKS ===== */
 #works {

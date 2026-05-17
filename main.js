@@ -112,15 +112,15 @@ function init() {
     var velocidad = Math.sqrt(dx * dx + dy * dy);
 
     // solo si el raton va rapido
-    if (velocidad > 8) {
+    if (velocidad > 3) {
       todasLasEstrellas.forEach(function(s) {
         var ex = s.cuerpo.position.x - mouseX;
         var ey = s.cuerpo.position.y - mouseY;
         var distancia = Math.sqrt(ex * ex + ey * ey);
 
         // solo afecta a las estrellas que estan cerca
-        if (distancia < 160 && distancia > 0) {
-          var fuerza = (velocidad / distancia) * 0.00012;
+        if (distancia < 220 && distancia > 0) {
+          var fuerza = (velocidad / distancia) * 0.006;
           Body.applyForce(s.cuerpo, s.cuerpo.position, {
             x: (ex / distancia) * fuerza,
             y: (ey / distancia) * fuerza

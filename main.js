@@ -143,15 +143,31 @@ function init() {
     todasLasEstrellas.push({ el: el, cuerpo: cuerpo });
   });
 
-  // si una estrella se para le damos un empujoncito
+  // mantener las estrellas moviendose y alejarlas de las esquinas
   Events.on(engine, 'beforeUpdate', function() {
     todasLasEstrellas.forEach(function(s) {
+      var pos = s.cuerpo.position;
       var vel = s.cuerpo.velocity;
-      if (Math.sqrt(vel.x * vel.x + vel.y * vel.y) < 0.8) {
-        Body.applyForce(s.cuerpo, s.cuerpo.position, {
-          x: (Math.random() - 0.5) * 0.0002,
-          y: (Math.random() - 0.5) * 0.0002
+      var speed = Math.sqrt(vel.x * vel.x + vel.y * vel.y);
+
+      // si va muy lenta le damos un empujon
+      if (speed < 2) {
+        Body.applyForce(s.cuerpo, pos, {
+          x: (Math.random() - 0.5) * 0.001,
+          y: (Math.random() - 0.5) * 0.001
         });
+      }
+
+      // si esta cerca de un borde la empujamos hacia el centro
+      var margen = 120;
+      var fx = 0, fy = 0;
+      if (pos.x < margen)      fx =  0.0008;
+      if (pos.x > W - margen)  fx = -0.0008;
+      if (pos.y < margen)      fy =  0.0008;
+      if (pos.y > H - margen)  fy = -0.0008;
+
+      if (fx !== 0 || fy !== 0) {
+        Body.applyForce(s.cuerpo, pos, { x: fx, y: fy });
       }
     });
   });

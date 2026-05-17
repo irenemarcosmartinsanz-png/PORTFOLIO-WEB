@@ -13,7 +13,12 @@
   <nav class="nav">
     <a href="index.html" class="nav-logo">!rene</a>
     <ul class="nav-links">
-      <li><a href="works.html">works</a></li>
+      <li>
+        <a href="works.html" class="nav-works-wrap">
+          works
+          <img src="assets/subrayado.png" class="nav-subrayado" alt="" />
+        </a>
+      </li>
       <li><a href="about.html">about</a></li>
       <li><a href="contact.html">contact</a></li>
     </ul>
@@ -22,27 +27,54 @@
   <main class="project-page">
     <a href="works.html" class="project-back">← works</a>
 
-    <div class="project-header">
-      <span class="project-cat">Illustration</span>
-      <h1>Goldfinch</h1>
-    </div>
+    <h1 class="project-titulo">Goldfinch</h1>
 
-    <div class="project-media">
-      <!-- <img src="assets/goldfinch-main.jpg" alt="Goldfinch" /> -->
-      <span class="project-media-placeholder">imagen principal</span>
-    </div>
-
-    <div class="project-desc">
-      <span class="project-desc-label">descripción</span>
-      <div class="project-desc-texto">
-        <p>Descripción del proyecto. Cuéntanos de qué trata, qué te inspiró, el proceso, etc.</p>
-        <p>Puedes añadir todo el texto que quieras aquí.</p>
+    <div class="project-info-row">
+      <div class="project-meta">
+        Fecha /<br>
+        Programa utilizado /<br>
+        Asignatura
+      </div>
+      <div class="project-concepto">
+        <span class="project-concepto-label">Concepto</span>
+        <p>Texto de descripción del proyecto.</p>
       </div>
     </div>
 
-    <div class="project-extras">
-      <!-- <img src="assets/goldfinch-2.jpg" /> -->
+    <div class="project-grid">
+      <div class="grid-grande"><!-- <img src="assets/Goldfinch/main.jpg" alt="" /> --></div>
+      <div class="grid-pequeñas">
+        <div><!-- <img src="assets/Goldfinch/img2.jpg" alt="" /> --></div>
+        <div><!-- <img src="assets/Goldfinch/img3.jpg" alt="" /> --></div>
+      </div>
+      <div class="grid-derecha"><!-- <img src="assets/Goldfinch/img4.jpg" alt="" /> --></div>
+    </div>
+
+    <div class="project-stars-nav">
+      <a href="dont-overthink.html" title="anterior">
+        <img src="assets/yellowstar.png" width="45" alt="anterior" />
+      </a>
+      <a href="works.html" title="todos los proyectos">
+        <img src="assets/yellowstar.png" width="60" alt="works" />
+      </a>
+      <a href="lo-que-no-se-cuenta.html" title="siguiente">
+        <img src="assets/yellowstar.png" width="45" alt="siguiente" />
+      </a>
     </div>
   </main>
+
+  <footer class="project-footer">
+    <div class="contact-cta">
+      <p class="contact-eyebrow">Got an idea?</p>
+      <h2 class="contact-headline">↙ Let's talk</h2>
+    </div>
+    <hr class="contact-rule" />
+    <div class="contact-socials">
+      <a href="mailto:irenemarcosmartinsanz@gmail.com" class="social-link">email</a>
+      <a href="https://instagram.com/" class="social-link" target="_blank">instagram</a>
+      <a href="https://behance.net/" class="social-link" target="_blank">behance</a>
+      <a href="https://linkedin.com/" class="social-link" target="_blank">linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>

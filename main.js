@@ -63,7 +63,7 @@ function init() {
     contenedor.appendChild(el);
 
     var cuerpo = Bodies.circle(x, y, r, {
-      frictionAir: 0.008,
+      frictionAir: 0.001,
       restitution: 0.85
     });
 
@@ -87,10 +87,10 @@ function init() {
   Events.on(engine, 'beforeUpdate', function() {
     todasLasEstrellas.forEach(function(s) {
       var vel = s.cuerpo.velocity;
-      if (Math.sqrt(vel.x * vel.x + vel.y * vel.y) < 0.4) {
+      if (Math.sqrt(vel.x * vel.x + vel.y * vel.y) < 0.8) {
         Body.applyForce(s.cuerpo, s.cuerpo.position, {
-          x: (Math.random() - 0.5) * 0.00035,
-          y: (Math.random() - 0.5) * 0.00035
+          x: (Math.random() - 0.5) * 0.0002,
+          y: (Math.random() - 0.5) * 0.0002
         });
       }
     });

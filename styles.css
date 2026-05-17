@@ -56,15 +56,16 @@ html {
 .nav-works-wrap {
   position: relative;
   display: inline-block;
+  isolation: isolate;
 }
 
 .nav-subrayado {
   position: absolute;
-  top: 100%;
-  margin-top: 3px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 130%;
+  transform: translate(-50%, -50%);
+  width: 170%;
+  z-index: -1;
   pointer-events: none;
 }
 

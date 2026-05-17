@@ -95,6 +95,18 @@ function init() {
 
     Composite.add(world, cuerpo);
 
+    // al pasar el raton encima frena para poder clickar bien
+    el.addEventListener('mouseenter', function() {
+      cuerpo.frictionAir = 0.15;
+      Body.setVelocity(cuerpo, {
+        x: cuerpo.velocity.x * 0.2,
+        y: cuerpo.velocity.y * 0.2
+      });
+    });
+    el.addEventListener('mouseleave', function() {
+      cuerpo.frictionAir = 0.001;
+    });
+
     // al hacer click va al link
     el.addEventListener('click', function() {
       window.location.href = estrella.link;

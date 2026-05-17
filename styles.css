@@ -232,5 +232,5 @@ html {
   #contact { padding: 3rem 1.2rem 2.5rem; }
   .contact-socials { gap: 1.2rem; flex-wrap: wrap; }
   .contact-headline { font-size: 2.2rem; }
-  .hero-name { color: #678AFA; }
+  .hero-name { color: #678AFA; font-weight: 700; }
 }

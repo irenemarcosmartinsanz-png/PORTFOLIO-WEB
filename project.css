@@ -56,8 +56,9 @@
 .project-concepto p {
   font-size: 0.95rem;
   color: #333;
-  line-height: 1.7;
+  line-height: 1.75;
   max-width: 700px;
+  margin-bottom: 0.6rem;
 }
 
 .project-concepto p + p {

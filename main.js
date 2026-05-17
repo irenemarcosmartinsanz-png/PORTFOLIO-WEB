@@ -40,7 +40,7 @@ function init() {
   // paredes para que no se salgan + bordes de la foto
   var paredOpts = { isStatic: true };
   Composite.add(world, [
-    Bodies.rectangle(W / 2, -25,    W,  50, paredOpts),
+    Bodies.rectangle(W / 2, 75,     W,  20, paredOpts), // techo bajo el nav
     Bodies.rectangle(W / 2, H + 25, W,  50, paredOpts),
     Bodies.rectangle(-25,   H / 2,  50, H,  paredOpts),
     Bodies.rectangle(W + 25, H / 2, 50, H,  paredOpts),

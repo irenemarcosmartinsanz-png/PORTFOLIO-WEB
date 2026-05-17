@@ -233,4 +233,5 @@ html {
   .contact-socials { gap: 1.2rem; flex-wrap: wrap; }
   .contact-headline { font-size: 2.2rem; }
   .hero-name { color: #678AFA; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
+  .hero-role { color: #678AFA; opacity: 0.75; }
 }

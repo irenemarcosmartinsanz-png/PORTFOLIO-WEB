@@ -3,12 +3,12 @@ const { Engine, Runner, Bodies, Body, Events, Composite } = Matter;
 const STAR_IMG = 'assets/e4e1f376-bfc9-4d04-8957-f723b935d7c8.png';
 
 const PROJECTS = [
-  { id: 'project-1', size: 58 },
-  { id: 'project-2', size: 42 },
-  { id: 'project-3', size: 50 },
+  { id: 'project-1', size: 72 },
+  { id: 'project-2', size: 60 },
+  { id: 'project-3', size: 68 },
 ];
 
-const DECO_SIZES = [28, 22, 36, 20];
+const DECO_SIZES = [55, 48, 64];
 
 function makeStarEl(size, interactive) {
   const el = document.createElement('div');

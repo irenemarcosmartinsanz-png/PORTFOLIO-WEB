@@ -34,12 +34,12 @@ function crearEstrellaAmarilla(tamaño) {
 
 // estrellas amarillas — proyectos futuros, solo flotan
 var estrellasAmarillas = [
-  { tamaño: 65 },
-  { tamaño: 50 },
-  { tamaño: 72 },
-  { tamaño: 55 },
-  { tamaño: 60 },
-  { tamaño: 68 },
+  { tamaño: 65, lado: 'izq' },
+  { tamaño: 50, lado: 'der' },
+  { tamaño: 72, lado: 'izq' },
+  { tamaño: 55, lado: 'der' },
+  { tamaño: 60, lado: 'izq' },
+  { tamaño: 68, lado: 'der' },
 ];
 
 function init() {
@@ -106,8 +106,13 @@ function init() {
   // estrellas amarillas (proyectos futuros)
   estrellasAmarillas.forEach(function(e) {
     var r = e.tamaño / 2;
-    var x = r + Math.random() * (W - r * 2);
-    var y = 100 + Math.random() * (H - 160);
+    var x, y;
+    if (e.lado === 'izq') {
+      x = r + Math.random() * (W * 0.45 - r * 2);
+    } else {
+      x = W * 0.55 + Math.random() * (W * 0.45 - r * 2);
+    }
+    y = 100 + Math.random() * (H - 160);
 
     var el = crearEstrellaAmarilla(e.tamaño);
     contenedor.appendChild(el);

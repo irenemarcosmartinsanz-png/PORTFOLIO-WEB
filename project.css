@@ -67,9 +67,8 @@
 .project-imagen img,
 .project-imagen video {
   width: 100%;
+  height: auto;
   display: block;
-  max-height: 75vh;
-  object-fit: cover;
 }
 
 /* imagenes extra debajo del grid */

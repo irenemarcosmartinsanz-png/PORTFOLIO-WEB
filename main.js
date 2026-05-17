@@ -1,8 +1,9 @@
 const { Engine, Runner, Bodies, Body, Events, Composite } = Matter;
 
 var imagenEstrella = 'assets/e4e1f376-bfc9-4d04-8957-f723b935d7c8.png';
+var imagenAmarilla = 'assets/yellowstar.png';
 
-// las 6 estrellas, 3 a cada lado
+// las 6 estrellas principales, 3 a cada lado
 var estrellas = [
   { lado: 'izq', tamaño: 125, link: '#contact' },
   { lado: 'izq', tamaño: 100, link: '#contact' },
@@ -21,6 +22,24 @@ function crearEstrella(tamaño) {
                 + '<div class="star-label">click me!</div>';
   return div;
 }
+
+function crearEstrellaAmarilla(tamaño) {
+  var div = document.createElement('div');
+  div.className = 'star';
+  div.style.width = tamaño + 'px';
+  div.style.height = tamaño + 'px';
+  div.innerHTML = '<img class="star-img" src="' + imagenAmarilla + '" draggable="false" />';
+  return div;
+}
+
+// estrellas amarillas — proyectos futuros, solo flotan
+var estrellasAmarillas = [
+  { tamaño: 65 },
+  { tamaño: 50 },
+  { tamaño: 72 },
+  { tamaño: 55 },
+  { tamaño: 60 },
+];
 
 function init() {
   var hero = document.getElementById('hero');
@@ -79,6 +98,29 @@ function init() {
     el.addEventListener('click', function() {
       window.location.href = estrella.link;
     });
+
+    todasLasEstrellas.push({ el: el, cuerpo: cuerpo });
+  });
+
+  // estrellas amarillas (proyectos futuros)
+  estrellasAmarillas.forEach(function(e) {
+    var r = e.tamaño / 2;
+    var x = r + Math.random() * (W - r * 2);
+    var y = 100 + Math.random() * (H - 160);
+
+    var el = crearEstrellaAmarilla(e.tamaño);
+    contenedor.appendChild(el);
+
+    var cuerpo = Bodies.circle(x, y, r, {
+      frictionAir: 0.001,
+      restitution: 0.85
+    });
+    Body.setVelocity(cuerpo, {
+      x: (Math.random() - 0.5) * 2,
+      y: (Math.random() - 0.5) * 2
+    });
+    Body.setAngularVelocity(cuerpo, (Math.random() - 0.5) * 0.04);
+    Composite.add(world, cuerpo);
 
     todasLasEstrellas.push({ el: el, cuerpo: cuerpo });
   });

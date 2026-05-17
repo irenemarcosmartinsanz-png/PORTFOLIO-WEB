@@ -107,9 +107,9 @@
   display: block;
 }
 
-/* footer amarillo */
+/* footer blanco */
 .project-footer {
-  background: #EDE84A;
+  background: #fff;
   color: #111;
   padding: 4rem 2.5rem 3rem;
   margin-top: 0;
@@ -136,7 +136,7 @@
   max-width: 1100px;
   margin: 0 auto 2rem;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid #ebebeb;
 }
 
 .project-footer .contact-socials {

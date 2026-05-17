@@ -5,23 +5,23 @@ body {
 
 /* sobreescribir el nav para que quede bien sobre fondo azul */
 .nav {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(75, 85, 232, 0.85);
 }
 
 .nav-logo {
-  color: #4B55E8;
+  color: white;
 }
 
 .nav-links a {
-  color: #888;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .nav-links a:hover {
-  color: #111;
+  color: white;
 }
 
 .nav-active {
-  color: white !important;
+  color: #111 !important;
 }
 
 .contact-page {

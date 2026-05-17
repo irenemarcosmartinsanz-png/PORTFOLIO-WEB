@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Irene — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo">Irene</span>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO: estrellas con matter.js -->
+  <section id="hero">
+    <canvas id="stars-canvas"></canvas>
+    <div class="hero-text">
+      <h1>Hola, soy <span class="highlight">Irene</span></h1>
+      <p>Diseñadora &amp; desarrolladora web</p>
+      <p class="hint">Haz clic en una estrella para ver mis proyectos</p>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="projects">
+    <h2 class="section-title">Proyectos</h2>
+    <div class="projects-grid">
+
+      <article class="project-card" id="project-1">
+        <div class="project-img placeholder-img"></div>
+        <div class="project-info">
+          <h3>Proyecto 1</h3>
+          <p>Descripción breve del proyecto. Qué tecnologías usaste y qué problema resuelve.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JS</span>
+          </div>
+          <a href="#" class="btn" target="_blank">Ver proyecto</a>
+        </div>
+      </article>
+
+      <article class="project-card" id="project-2">
+        <div class="project-img placeholder-img"></div>
+        <div class="project-info">
+          <h3>Proyecto 2</h3>
+          <p>Descripción breve del proyecto. Qué tecnologías usaste y qué problema resuelve.</p>
+          <div class="project-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">UX/UI</span>
+          </div>
+          <a href="#" class="btn" target="_blank">Ver proyecto</a>
+        </div>
+      </article>
+
+      <article class="project-card" id="project-3">
+        <div class="project-img placeholder-img"></div>
+        <div class="project-info">
+          <h3>Proyecto 3</h3>
+          <p>Descripción breve del proyecto. Qué tecnologías usaste y qué problema resuelve.</p>
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">CSS</span>
+          </div>
+          <a href="#" class="btn" target="_blank">Ver proyecto</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="about">
+    <div class="about-container">
+      <div class="about-img-wrap">
+        <div class="about-img-placeholder"></div>
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">Sobre mí</h2>
+        <p>
+          Soy Irene, estudiante de diseño y desarrollo web. Me apasiona crear
+          experiencias digitales que combinen estética y funcionalidad.
+        </p>
+        <p>
+          Actualmente aprendiendo nuevas tecnologías y construyendo proyectos
+          que reflejan mi visión creativa.
+        </p>
+        <div class="skills">
+          <span class="skill">HTML &amp; CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Figma</span>
+          <span class="skill">matter.js</span>
+          <span class="skill">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contact">
+    <h2 class="section-title">Contacto</h2>
+    <p class="contact-sub">¿Tienes un proyecto en mente? Escríbeme.</p>
+    <div class="contact-links">
+      <a href="mailto:irenemarcosmartinsanz@gmail.com" class="contact-btn">Email</a>
+      <a href="https://github.com/tu-usuario" class="contact-btn" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Irene — Hecho con matter.js y mucho café</p>
+  </footer>
+
+  <!-- TOOLTIP de estrella -->
+  <div id="star-tooltip" class="star-tooltip hidden"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

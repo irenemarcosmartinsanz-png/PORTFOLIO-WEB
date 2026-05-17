@@ -11,7 +11,7 @@
 .works-titulo h1 {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 /* lista full width */

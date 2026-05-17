@@ -57,6 +57,7 @@ html {
   position: relative;
   display: inline-block;
   isolation: isolate;
+  color: #111 !important;
 }
 
 .nav-subrayado {

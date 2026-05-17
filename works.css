@@ -1,3 +1,7 @@
+body {
+  background: #f2f2f0;
+}
+
 .works-page {
   max-width: 1100px;
   margin: 0 auto;
@@ -14,51 +18,55 @@
   letter-spacing: -0.02em;
 }
 
-/* lista de proyectos */
+/* lista */
 .works-lista {
-  border-top: 1px solid #ebebeb;
+  display: flex;
+  flex-direction: column;
 }
 
 .work-item {
+  position: relative;
+  overflow: hidden;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid #ebebeb;
+  padding: 1.4rem 0;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+}
+
+/* barra morada que barre de izquierda a derecha */
+.work-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: #4B55E8;
+  transition: width 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 0;
+}
+
+.work-item:hover::before {
+  width: 100%;
+}
+
+.work-titulo,
+.work-cat {
+  position: relative;
+  z-index: 1;
   transition: color 0.2s;
 }
 
-.work-item:hover {
-  color: #4B55E8;
-}
-
-.work-item:hover .work-titulo {
-  letter-spacing: -0.01em;
-}
-
-.work-izq {
-  display: flex;
-  align-items: baseline;
-  gap: 1.5rem;
-}
-
-.work-num {
-  font-size: 0.78rem;
-  color: #bbb;
-  flex-shrink: 0;
-  width: 2ch;
-}
-
 .work-titulo {
-  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
   line-height: 1;
-  text-transform: uppercase;
-  transition: letter-spacing 0.3s;
+  color: #111;
 }
 
 .work-cat {
@@ -68,9 +76,9 @@
   text-align: right;
 }
 
+.work-item:hover .work-titulo,
 .work-item:hover .work-cat {
-  color: #4B55E8;
-  opacity: 0.7;
+  color: white;
 }
 
 .nav-active {
@@ -79,7 +87,6 @@
 
 @media (max-width: 680px) {
   .works-page { padding: 7rem 1.2rem 4rem; }
-  .work-item { flex-wrap: wrap; gap: 0.4rem; padding: 1.2rem 0; }
   .work-titulo { font-size: 2rem; }
-  .work-cat { font-size: 0.75rem; width: 100%; padding-left: 3ch; }
+  .work-cat { display: none; }
 }

@@ -1,0 +1,151 @@
+@use 'variables' as *;
+
+.nav-active {
+  color: $blanco !important;
+}
+
+.about-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8rem 4rem 5rem;
+}
+
+// foto + nombre arriba
+.about-top {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.about-foto {
+  &-wrap {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+    background: $blanco;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  filter: none;
+
+  &-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 0.85rem;
+  }
+}
+
+.about-nombre {
+  h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $azul-oscuro;
+    font-size: 1rem;
+  }
+}
+
+// grid de secciones
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem 8rem;
+}
+
+.about-seccion {
+  grid-template-columns: 100px 1fr;
+  display: grid;
+  padding: 0;
+  gap: 0.8rem 1.5rem;
+}
+
+.about-etiqueta {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $azul-oscuro;
+  padding-top: 0.2rem;
+  letter-spacing: 0.03em;
+}
+
+.about-texto p {
+  color: $negro;
+  line-height: 1.75;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+// cv items
+.cv-item {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+
+  strong {
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: $azul-oscuro;
+    margin: 0 !important;
+  }
+}
+
+.cv-año {
+  font-size: 0.8rem;
+  color: $azul-oscuro;
+  width: 80px;
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+
+// skills
+.skills-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  span {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid $azul-oscuro;
+    border-radius: 20px;
+    color: $azul-oscuro;
+  }
+}
+
+@media (max-width: $breakpoint-movil) {
+  .about-page { padding: 6rem $padding-lateral-movil 3rem; }
+
+  .about-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .about-foto-wrap { width: 130px; height: 130px; }
+  .about-foto { width: 100px; height: 100px; }
+  .about-nombre h1 { font-size: 1.8rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem 0; }
+  .about-seccion { grid-template-columns: 90px 1fr; gap: 0.5rem 1rem; }
+}

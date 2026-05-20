@@ -6,7 +6,7 @@
 
 body {
   background: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: #111;
   overflow-x: hidden;
 }
@@ -15,7 +15,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* nav */
 .nav {
   position: fixed;
   top: 0;
@@ -29,38 +28,31 @@ html {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
 }
-
 .nav-logo {
   font-weight: 600;
   font-size: 1.1rem;
   color: #4B55E8;
   text-decoration: none;
 }
-
 .nav-links {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
-
 .nav-links a {
   font-size: 0.9rem;
   color: #888;
   text-decoration: none;
 }
-
 .nav-links a:hover {
   color: #111;
 }
-
 .nav-works-wrap {
   position: relative;
   display: inline-block;
   color: #111 !important;
   isolation: isolate;
-  /* display: block; */
 }
-
 .nav-subrayado {
   position: absolute;
   top: 50%;
@@ -71,7 +63,6 @@ html {
   pointer-events: none;
 }
 
-/* hero */
 #hero {
   position: relative;
   height: 100vh;
@@ -87,7 +78,9 @@ html {
   overflow: hidden;
   pointer-events: none;
 }
-
+.hero-photo-wrap.no-photo {
+  background: #f0f0f0;
+}
 .hero-photo {
   height: 112%;
   width: auto;
@@ -95,19 +88,6 @@ html {
   display: block;
   pointer-events: none;
 }
-
-.hero-photo-wrap.no-photo {
-  background: #f0f0f0;
-}
-
-/* contenedor de estrellas */
-#stars-container {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* nombre e info abajo izquierda */
 .hero-info {
   position: absolute;
   bottom: 2.5rem;
@@ -115,38 +95,46 @@ html {
   z-index: 10;
   pointer-events: none;
 }
-
 .hero-name {
   font-size: 1.1rem;
   font-weight: 500;
 }
-
 .hero-role {
   font-size: 0.85rem;
   color: #888;
   margin-top: 0.2rem;
 }
 
-/* estrellas - matter.js */
+#stars-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .star {
   position: absolute;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-
 .star-interactive {
   pointer-events: auto;
   cursor: pointer;
 }
-
+.star-interactive:hover .star-img {
+  opacity: 0.12;
+}
+.star-interactive:hover .star-label {
+  opacity: 1;
+}
 .star-img {
   width: 100%;
   height: 100%;
   display: block;
   transition: opacity 0.22s;
 }
-
 .star-label {
   position: absolute;
   inset: 0;
@@ -162,15 +150,6 @@ html {
   white-space: nowrap;
 }
 
-.star-interactive:hover .star-img {
-  opacity: 0.12;
-}
-
-.star-interactive:hover .star-label {
-  opacity: 1;
-}
-
-/* seccion de contacto */
 #contact {
   background: #4B55E8;
   color: white;
@@ -181,26 +160,22 @@ html {
   max-width: 1200px;
   margin: 0 auto 2rem;
 }
-
 .contact-eyebrow {
   font-size: 1rem;
   opacity: 0.75;
   margin-bottom: 0.4rem;
 }
-
 .contact-headline {
   font-size: clamp(2.5rem, 6vw, 5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
-
 .contact-rule {
   max-width: 1200px;
   margin: 0 auto 2rem;
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
-
 .contact-socials {
   max-width: 1200px;
   margin: 0 auto;
@@ -217,21 +192,44 @@ html {
   text-decoration: none;
   font-size: 0.9rem;
 }
-
 .social-link:hover {
   color: white;
 }
 
-/* movil */
 @media (max-width: 680px) {
-  .nav { padding: 1rem 1.2rem; }
-  .nav-links { gap: 1rem; }
-  .nav-links a { font-size: 0.8rem; }
-  .nav-logo { font-size: 1rem; }
-  .hero-info { left: 1.2rem; bottom: 1.5rem; }
-  #contact { padding: 3rem 1.2rem 2.5rem; }
-  .contact-socials { gap: 1.2rem; flex-wrap: wrap; }
-  .contact-headline { font-size: 2.2rem; }
-  .hero-name { color: #678AFA; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
-  .hero-role { color: #678AFA; opacity: 0.75; }
-}
+  .nav {
+    padding: 1rem 1.2rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+  .nav-logo {
+    font-size: 1rem;
+  }
+  .hero-info {
+    left: 1.2rem;
+    bottom: 1.5rem;
+  }
+  .hero-name {
+    color: #678AFA;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+  .hero-role {
+    color: #678AFA;
+    opacity: 0.75;
+  }
+  #contact {
+    padding: 3rem 1.2rem 2.5rem;
+  }
+  .contact-socials {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .contact-headline {
+    font-size: 2.2rem;
+  }
+}/*# sourceMappingURL=styles.css.map */

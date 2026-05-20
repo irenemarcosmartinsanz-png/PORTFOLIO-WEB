@@ -5,12 +5,12 @@ var imagenAmarilla = 'assets/yellowstar.png';
 
 // las 6 estrellas principales, 3 a cada lado
 var estrellas = [
-  { lado: 'izq', tamaño: 125, link: 'lo-que-no-se-cuenta.html', titulo: 'Lo que no se cuenta' },
-  { lado: 'izq', tamaño: 100, link: 'carusos.html',             titulo: "Caruso's" },
-  { lado: 'izq', tamaño: 115, link: 'mobiliare.html',           titulo: 'Mobiliare' },
-  { lado: 'der', tamaño: 120, link: 'balloon3d.html',           titulo: 'Balloon' },
-  { lado: 'der', tamaño: 105, link: 'dont-overthink.html',      titulo: "Don't Overthink" },
-  { lado: 'der', tamaño: 135, link: 'goldfinch.html',           titulo: 'Goldfinch' },
+  { lado: 'izq', tamaño: 125, link: 'projects/lo-que-no-se-cuenta.html', titulo: 'Lo que no se cuenta' },
+  { lado: 'izq', tamaño: 100, link: 'projects/carusos.html',             titulo: "Caruso's" },
+  { lado: 'izq', tamaño: 115, link: 'projects/mobiliare.html',           titulo: 'Mobiliare' },
+  { lado: 'der', tamaño: 120, link: 'projects/balloon3d.html',           titulo: 'Balloon' },
+  { lado: 'der', tamaño: 105, link: 'projects/dont-overthink.html',      titulo: "Don't Overthink" },
+  { lado: 'der', tamaño: 135, link: 'projects/goldfinch.html',           titulo: 'Goldfinch' },
 ];
 
 function crearEstrella(tamaño, titulo) {
@@ -115,7 +115,7 @@ function init() {
     todasLasEstrellas.push({ el: el, cuerpo: cuerpo });
   });
 
-  // estrellas amarillas (proyectos futuros)
+  // estrellas amarillas 
   estrellasAmarillas.forEach(function(e) {
     var r = e.tamaño / 2;
     var x, y;

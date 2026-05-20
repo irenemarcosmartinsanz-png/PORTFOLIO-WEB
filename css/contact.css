@@ -3,23 +3,18 @@ body {
   color: white;
 }
 
-/* sobreescribir el nav para que quede bien sobre fondo azul */
 .nav {
   background: rgba(75, 85, 232, 0.85);
 }
-
 .nav-logo {
   color: white;
 }
-
 .nav-links a {
   color: rgba(255, 255, 255, 0.6);
 }
-
 .nav-links a:hover {
   color: white;
 }
-
 .nav-active {
   color: #111 !important;
 }
@@ -29,11 +24,9 @@ body {
   margin: 0 auto;
   padding: 8rem 2.5rem 5rem;
 }
-
 .contact-header {
   margin-bottom: 3.5rem;
 }
-
 .contact-header h1 {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 700;
@@ -41,16 +34,23 @@ body {
   margin-bottom: 0.5rem;
   color: white;
 }
-
 .contact-header p {
   color: rgba(255, 255, 255, 0.6);
   font-size: 1rem;
 }
-
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+.contact-socials-large {
+  max-width: 620px !important;
+  margin: 0 auto !important;
+  justify-content: space-between !important;
+  padding: 1.5rem 2.5rem 3rem !important;
+}
+.contact-socials-large .social-link {
+  font-size: 0.85rem;
 }
 
 .campo {
@@ -58,32 +58,31 @@ body {
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .campo label {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.03em;
 }
-
 .campo input,
 .campo textarea {
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.7rem 0;
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: white;
   background: transparent;
   outline: none;
   resize: none;
   transition: border-color 0.2s;
 }
-
 .campo input:focus,
 .campo textarea:focus {
   border-color: white;
 }
-
+.campo input::-moz-placeholder, .campo textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
 .campo input::placeholder,
 .campo textarea::placeholder {
   color: rgba(255, 255, 255, 0.3);
@@ -96,13 +95,12 @@ body {
   border: none;
   padding: 0.85rem 2.5rem;
   font-size: 0.9rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.03em;
   transition: opacity 0.2s;
 }
-
 .btn-enviar:hover {
   opacity: 0.85;
 }
@@ -112,19 +110,17 @@ body {
   font-size: 0.9rem;
 }
 
-.contact-socials-large {
-  max-width: 620px !important;
-  margin: 0 auto !important;
-  justify-content: space-between !important;
-  padding: 1.5rem 2.5rem 3rem !important;
-}
-
-.contact-socials-large .social-link {
-  font-size: 0.85rem;
-}
-
 @media (max-width: 680px) {
-  .contact-page { padding: 6rem 1.2rem 3rem; }
-  .contact-header h1 { font-size: 2.2rem; }
-  .contact-socials-large { flex-wrap: wrap; gap: 1rem; padding: 1.5rem 1.2rem 2.5rem; justify-content: center !important; }
-}
+  .contact-page {
+    padding: 6rem 1.2rem 3rem;
+  }
+  .contact-header h1 {
+    font-size: 2.2rem;
+  }
+  .contact-socials-large {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem 1.2rem 2.5rem;
+    justify-content: center !important;
+  }
+}/*# sourceMappingURL=contact.css.map */

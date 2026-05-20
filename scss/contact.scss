@@ -1,0 +1,123 @@
+@use 'variables' as *;
+
+body {
+  background: $azul;
+  color: $blanco;
+}
+
+// nav sobre fondo azul
+.nav {
+  background: rgba(75, 85, 232, 0.85);
+
+  &-logo { color: $blanco; }
+
+  &-links a {
+    color: rgba(255, 255, 255, 0.6);
+
+    &:hover { color: $blanco; }
+  }
+
+  &-active { color: $negro !important; }
+}
+
+.contact {
+  &-page {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 8rem $padding-lateral 5rem;
+  }
+
+  &-header {
+    margin-bottom: 3.5rem;
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: $blanco;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1rem;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &-socials-large {
+    max-width: 620px !important;
+    margin: 0 auto !important;
+    justify-content: space-between !important;
+    padding: 1.5rem $padding-lateral 3rem !important;
+
+    .social-link { font-size: 0.85rem; }
+  }
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.03em;
+  }
+
+  input,
+  textarea {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.7rem 0;
+    font-size: 1rem;
+    font-family: $fuente;
+    color: $blanco;
+    background: transparent;
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s;
+
+    &:focus { border-color: $blanco; }
+
+    &::placeholder { color: rgba(255, 255, 255, 0.3); }
+  }
+}
+
+.btn-enviar {
+  align-self: flex-start;
+  background: $blanco;
+  color: $azul;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  font-size: 0.9rem;
+  font-family: $fuente;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 0.85; }
+}
+
+.mensaje-ok {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+@media (max-width: $breakpoint-movil) {
+  .contact-page { padding: 6rem $padding-lateral-movil 3rem; }
+  .contact-header h1 { font-size: 2.2rem; }
+  .contact-socials-large {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem $padding-lateral-movil 2.5rem;
+    justify-content: center !important;
+  }
+}
